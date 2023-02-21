@@ -1,0 +1,19 @@
+name: Testing
+
+on:
+  pull_request:
+    branches:
+      - main
+    types:
+      - opened
+      - reopened
+      - synchronize
+      - ready_for_review
+  
+jobs:
+  testing:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Get previous workflow timestamp
+        uses: dpguthrie/last-workflow-created-at@v0.1.2
+        id: last_created_at
